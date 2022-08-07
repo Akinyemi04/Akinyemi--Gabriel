@@ -1,38 +1,837 @@
+d* {
+  margin: 0 0;
+  padding: 0 0;
+}
+
 .App {
+  height: 100vh;
+  overflow-y: scroll;
+}
+.App .name {
+  width: 86vw;
+  transform: translatey(4vh);
+  margin: auto;
+  text-align: left;
+  font-family: Raleway;
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 67px;
+  letter-spacing: 0px;
+}
+.App header {
+  width: 98.79vw;
+  background-color: white;
+}
+.App header nav {
+  width: 87vw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+.App header nav .div {
+  display: flex;
+  align-items: center;
+}
+.App header nav .div .site {
+  text-transform: uppercase;
+  margin-right: 2vw;
+  font-size: Raleway;
+  font-weight: 600;
+  font-size: 17px;
+  padding: 1.7vh;
+  line-height: 19px;
+  display: inline-block;
+  text-decoration: none;
+  list-style: none;
+}
+.App header nav .div #fnav {
+  color: #5ECE7B;
+  border-bottom: 3px solid #5ECE7B;
+}
+.App header nav .img {
+  width: 77px;
+  height: 90px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin-left: 19vw;
+  margin-right: 28vw;
+}
+.App header nav aside {
+  position: relative;
+  margin-top: 6vh;
+  cursor: pointer;
+}
+.App header nav aside .pan {
+  margin-left: 5vw;
+}
+.App header nav aside .pan .DropD {
+  margin-left: 0.3vw;
+}
+.App header nav aside .range {
+  position: absolute;
+  margin-top: 1.5vh;
+  padding-top: 1.8vh;
+  margin-left: 3vw;
+  display: none;
+  z-index: 1;
+  flex-direction: column;
+  width: 5vw;
+  cursor: default;
+  box-shadow: 1px 3px 10px rgb(235, 231, 231);
+}
+.App header nav aside .range .span {
+  margin-bottom: 0.4vh;
+  font-family: Raleway;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+.App header nav aside .range .span:hover {
+  background-color: rgb(187, 179, 179);
+}
+.App header nav .divx {
+  position: relative;
+  margin-top: 6.4vh;
+  margin-left: 1vw;
+  cursor: pointer;
+}
+.App header nav .divx .span {
+  display: none;
+  position: absolute;
+  transform: translate(-0.7vw, -1.4vh);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: black;
+  color: white;
+  font-size: x-small;
+  padding-top: 1.5px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Home {
+  display: flex;
+  flex-wrap: wrap;
+  transform: translatey(6vh);
+  flex-direction: row;
+  width: 86vw;
+  margin: auto;
+}
+.Home .product {
+  text-decoration: none;
+  margin-top: 5vh;
+  position: relative;
+  width: 27vw;
+  height: 30vh;
+  margin-left: 1.5vw;
+  margin-bottom: 13.5vh;
+}
+.Home .product .click {
+  position: absolute;
+  top: 29vh;
+  right: 3vw;
+  cursor: pointer;
+  z-index: 2;
+  display: none;
+  transform: scale(0.75);
+}
+.Home .product .linkx {
+  text-decoration: none;
+}
+.Home .product .linkx:hover {
+  opacity: 0.6;
+}
+.Home .product .image {
+  width: 25vw;
+  height: 35vh;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.Home .product .false {
+  opacity: 0.3;
+}
+.Home .product .Nostock {
+  position: absolute;
+  top: 17vh;
+  left: 8vw;
+  color: rgb(141, 143, 154);
+  font-family: Raleway;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 38px;
+  letter-spacing: 0px;
+  text-align: center;
+}
+.Home .product .brand {
+  font-family: Raleway;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 29px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: rgb(141, 143, 154);
+  padding-left: 4vw;
+}
+.Home .product .price {
+  text-align: left;
+  padding-left: 4vw;
+  color: black;
+}
+.Home .product:hover .click {
+  display: inline-block;
+}
+.Home .click:hover {
+  opacity: 0.8;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.PDP {
+  margin-top: 3vh;
+  width: 90vw;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.PDP .sectioning {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.PDP .sectioning .number {
+  width: 10vw;
+  height: 12vh;
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin-bottom: 2vh;
+}
+.PDP .sectioning .number:hover {
+  opacity: 0.5;
+}
+.PDP .big_one {
+  height: 64vh;
+  width: 34vw;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.PDP .side {
+  margin-top: 6vh;
+  margin-left: 4vw;
+}
+.PDP .side h1 {
+  font-family: Raleway;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 27px;
+  letter-spacing: 0em;
+  margin-bottom: 1vh;
+  text-align: left;
+}
+.PDP .side .poty {
+  margin-bottom: 3.4vh;
+  font-family: Raleway;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: rgb(29, 31, 34);
+}
+.PDP .side .dividend {
+  display: flex;
+  margin-top: 1.4vh;
+  flex-direction: column;
+}
+.PDP .side .dividend .page_info {
+  margin-top: 1vh;
+  display: flex;
+  flex-direction: row;
+}
+.PDP .side .dividend .page_info .span {
+  width: 2vw;
+  height: 3vh;
+  text-align: center;
+  border: 1px solid black;
+  margin-left: 0.6vw;
+  cursor: default;
+}
+.PDP .side .dividend .page_info .span:hover {
+  opacity: 0.5;
+}
+.PDP .side .dividend .page_info .plan {
+  width: 4vw;
+  text-align: center;
+  color: black;
+  border: 1px solid black;
+  margin-left: 0.6vw;
+  cursor: default;
+}
+.PDP .side .dividend .page_info .plan:hover {
+  opacity: 0.5;
+}
+.PDP .side .dividend .tody {
+  margin-top: 2.7vh;
+  font-family: Roboto Condensed;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.PDP .side .roboto {
+  margin: 1vh 0;
+  font-family: Roboto Condensed;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.PDP .side .pricage {
+  margin: 1vh 0 1.5vh;
+  font-family: Raleway;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.PDP .side button {
+  width: 15vw;
+  height: 5vh;
+  margin-bottom: 1.5vh;
+  text-align: center;
   color: white;
+  background-color: rgb(94, 206, 123);
+  border: 2px solid rgb(94, 206, 123);
+}
+.PDP .side button:hover {
+  opacity: 0.5;
+}
+.PDP .side .description {
+  margin-top: 2vh;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.PDP .rigor {
+  font-family: Roboto Condensed;
+  font-size: 18px;
+  font-weight: 700;
+  transform: translate(28vw, -35vh);
+  color: rgb(70, 83, 105);
+  position: absolute;
+  text-align: center;
+  white-space: nowrap;
+  display: block;
+}
+.PDP #hidden {
+  -webkit-animation: error 4s ease-in 1 forwards;
+          animation: error 4s ease-in 1 forwards;
 }
 
-.App-link {
-  color: #61dafb;
+.mini-cart {
+  display: none;
+  position: absolute;
+  top: 6vh;
+  z-index: 2;
+  transform: translatex(-16vw);
+  background-color: white;
+  width: 21vw;
+  height: 62vh;
+}
+.mini-cart h2 {
+  display: inline-block;
+  margin-top: 1vh;
+  margin-left: 1vw;
+  font-family: Raleway condensed;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 26px;
+  letter-spacing: 0em;
+}
+.mini-cart .prep {
+  display: inline-block;
+  font-family: Raleway;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0em;
+}
+.mini-cart main {
+  height: 45vh;
+  overflow-y: scroll;
+}
+.mini-cart main .map {
+  position: relative;
+}
+.mini-cart main .map aside {
+  margin-top: 2vh;
+  margin-left: 1vw;
+}
+.mini-cart main .map aside .head, .mini-cart main .map aside .pprice {
+  -webkit-margin-before: 0em;
+          margin-block-start: 0em;
+  -webkit-margin-after: 0em;
+          margin-block-end: 0em;
+  font-family: Raleway;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 26px;
+  letter-spacing: 0px;
+}
+.mini-cart main .map aside .pprice {
+  font-family: 500;
+}
+.mini-cart main .map aside .cati {
+  margin-top: 1vh;
+  white-space: nowrap;
+  font-family: Raleway;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0px;
+}
+.mini-cart main .map aside .cool {
+  float: right;
+  transform: translatey(-9vh);
+  left: 5vw;
+  width: 11vw;
+  height: 18vh;
+}
+.mini-cart main .map aside .cool div {
+  margin-left: 1vw;
+  width: 3vw;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.mini-cart main .map aside .cool div .mirror {
+  transform: scale(0.6);
+}
+.mini-cart main .map aside .cool div .mirror:hover {
+  opacity: 0.5;
+}
+.mini-cart main .map aside .cool div span {
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}
+.mini-cart main .map aside .cool .large-one {
+  transform: translate(3vw, -16vh);
+  width: 8vw;
+  height: 13vh;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.mini-cart main .map aside section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.mini-cart main .map aside section .spanner {
+  display: inline-block;
+  width: 3.3vw;
+  text-align: center;
+  border: 1px solid black;
+  font-size: 11px;
+  margin-right: 0.5vw;
+}
+.mini-cart main .map aside section .spanx {
+  width: 2vw;
+  height: 3vh;
+  border: 1px solid white;
+  margin-right: 0.22vw;
+}
+.mini-cart main::-webkit-scrollbar {
+  width: 0.4vw;
+}
+.mini-cart main::-webkit-scrollbar-track {
+  background-color: rgb(145, 129, 129);
+  border-radius: 100vw;
+  margin-block: 0.5em;
+}
+.mini-cart main::-webkit-scrollbar-thumb {
+  background-color: rgb(58, 38, 68);
+  border-radius: 100vw;
+}
+.mini-cart main::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(44, 44, 73);
+}
+@supports (scrollbar-color: red, blue) {
+  .mini-cart .mini-cart main {
+    scrollbar-color: rgb(145, 129, 129) rgb(58, 38, 68);
+    scrollbar-width: thin;
+  }
+}
+.mini-cart .feet {
+  display: flex;
+  flex-direction: row;
+}
+.mini-cart .feet .total {
+  position: relative;
+  bottom: 1.5vh;
+  font-family: Robotop;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0em;
+  margin-bottom: 1vh;
+  margin-left: 1vw;
+}
+.mini-cart .feet .speed {
+  position: relative;
+  bottom: 1.5vh;
+  margin-left: 10vw;
+  font-family: Raleway;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 26px;
+  letter-spacing: 0em;
+}
+.mini-cart footer {
+  width: 19vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: none;
+  margin: auto;
+  position: fixed;
+  left: 1vw;
+  bottom: 2vh;
+}
+.mini-cart footer .view-bag {
+  width: 6vw;
+  color: black;
+  text-decoration: none;
+  font-family: Raleway;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: center;
+  background-color: white;
+  padding: 6px 14px;
+  border: 1px solid black;
+  margin-left: 1vw;
+  margin-right: 2vw;
+  cursor: pointer;
+}
+.mini-cart footer .view-bag:hover {
+  color: white;
+  background-color: rgb(56, 49, 49);
+}
+.mini-cart footer .checkout {
+  padding: 6px 14px;
+  background-color: #5ECE7B;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 20px;
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+.mini-cart footer .checkout:hover {
+  opacity: 0.7;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.main-cart {
+  display: block;
+}
+.main-cart h2 {
+  font-family: Raleway;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: 0em;
+  margin-left: 6vw;
+  margin-top: 4vh;
+}
+.main-cart .map {
+  position: relative;
+  top: 1vh;
+  width: 88vw;
+  min-height: 26vh;
+  margin: auto;
+}
+.main-cart .map hr {
+  position: relative;
+  right: 2vw;
+  top: 2vh;
+  width: 85vw;
+  border: 1px solid rgb(245, 239, 239);
+  margin: auto;
+}
+.main-cart .map .spa {
+  visibility: hidden;
+  top: 2vh;
+  right: 3vw;
+  float: right;
+  margin-top: 3vh;
+  width: 1.5vw;
+  cursor: pointer;
+  height: 2vh;
+}
+.main-cart .map .roller {
+  display: flex;
+  flex-direction: row;
+}
+.main-cart .map .head, .main-cart .mini-cart main .map aside .pprice, .mini-cart main .main-cart .map aside .pprice {
+  -webkit-margin-before: 0em;
+          margin-block-start: 0em;
+  -webkit-margin-after: 0em;
+          margin-block-end: 0em;
+  margin-top: 4vh;
+  font-family: Raleway;
+  font-size: 23px;
+  font-weight: 600;
+  line-height: 27px;
+  letter-spacing: 0em;
+}
+.main-cart .map .header {
+  -webkit-margin-before: 0em;
+          margin-block-start: 0em;
+  -webkit-margin-after: 0em;
+          margin-block-end: 0em;
+  margin-top: 1vh;
+  font-family: Raleway;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 27px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.main-cart .map .pprice {
+  -webkit-margin-before: 0em;
+          margin-block-start: 0em;
+  -webkit-margin-after: 0em;
+          margin-block-end: 0em;
+  font-family: Raleway;
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 0.6vh;
+  line-height: 24px;
+  letter-spacing: 0em;
+}
+.main-cart .map .cati {
+  -webkit-margin-before: 0em;
+          margin-block-start: 0em;
+  -webkit-margin-after: 0em;
+          margin-block-end: 0em;
+  margin-top: 1vh;
+  font-family: Roboto Condensed;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0em;
+}
+.main-cart .map section {
+  position: relative;
+}
+.main-cart .map section .spanx {
+  margin-top: 0.5vh;
+  display: inline-block;
+  width: 2.5vw;
+  height: 4vh;
+  margin-right: 0.7vw;
+  border: 1px solid white;
+}
+.main-cart .map section .spanner {
+  margin-top: 0.5vh;
+  width: 3.5vw;
+  text-align: center;
+  border: 1px solid black;
+  margin-right: 1vw;
+}
+.main-cart .map .cool {
+  position: absolute;
+  right: 12vw;
+  width: 11vw;
+  height: 18vh;
+}
+.main-cart .map .cool div {
+  margin-top: 1vh;
+  display: flex;
+  flex-direction: column;
+}
+.main-cart .map .cool div .mirror {
+  margin-top: 1vh;
+  width: 5vw;
+  height: 5vh;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.main-cart .map .cool div .mirror:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+.main-cart .map .cool div span {
+  margin: 4vh 0 4vh 2vw;
+}
+.main-cart .map .cool .control {
+  z-index: 1;
+  position: absolute;
+  left: 11.6vw;
+  transform: translate(-3vw, -3vh);
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+}
+.main-cart .map .cool .control .move {
+  width: 3vw;
+  height: 3vh;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.main-cart .map .cool .control .move:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+.main-cart .map .cool .control .right {
+  position: absolute;
+  right: -1.7vw;
+}
+.main-cart .map .cool .large-one {
+  width: 14vw;
+  transform: translate(3vw, -19vh);
+  height: 20vh;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.main-cart .map:hover .spa {
+  visibility: visible;
+}
+.main-cart footer {
+  margin-top: 4.5vh;
+}
+.main-cart footer hr {
+  position: relative;
+  right: 2vw;
+  top: 2vh;
+  width: 85vw;
+  border: 1px solid rgb(245, 239, 239);
+  margin: auto;
+}
+.main-cart footer p {
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
+  margin-top: 2.5vh;
+  -webkit-margin-after: 0;
+          margin-block-end: 0;
+  margin-left: 5vw;
+  font-family: Raleway;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 22px;
+}
+.main-cart footer p span {
+  font-family: Raleway;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 22px;
+}
+.main-cart footer .button {
+  position: relative;
+  top: 2.5vh;
+  transform: translatey(3vh);
+  margin-bottom: 1vh;
+  margin-left: 4vw;
+  padding: 1vh 5vw;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  border: 1px solid #5ECE7B;
+  color: white;
+  background-color: #5ECE7B;
+}
+.main-cart footer .button:hover {
+  opacity: 0.4;
+}
+
+@-webkit-keyframes error {
+  0% {
+    transform: translate(28vw, -20vh);
   }
-  to {
-    transform: rotate(360deg);
+  3% {
+    transform: translate(28vw, -18vh);
+  }
+  10% {
+    transform: translate(28vw, -15vh);
+  }
+  30% {
+    transform: translate(28vw, -10.5vh);
+  }
+  50% {
+    transform: translate(28vw, -5vh);
+  }
+  75% {
+    transform: translate(28vw, -15vh);
+  }
+  88% {
+    transform: translate(28vw, -25vh);
+  }
+  100% {
+    transform: translate(28vw, -35vh);
   }
 }
+
+@keyframes error {
+  0% {
+    transform: translate(28vw, -20vh);
+  }
+  3% {
+    transform: translate(28vw, -18vh);
+  }
+  10% {
+    transform: translate(28vw, -15vh);
+  }
+  30% {
+    transform: translate(28vw, -10.5vh);
+  }
+  50% {
+    transform: translate(28vw, -5vh);
+  }
+  75% {
+    transform: translate(28vw, -15vh);
+  }
+  88% {
+    transform: translate(28vw, -25vh);
+  }
+  100% {
+    transform: translate(28vw, -35vh);
+  }
+}
+@media screen and (max-width: 1250px) {
+  .App {
+    overflow-x: hidden;
+  }
+  .App header nav .img {
+    margin-right: 20vw;
+  }
+  .App header nav aside .pan .DropD {
+    margin-left: 0.8vw;
+  }
+  .App nav .img {
+    margin-right: 20vw;
+  }
+  .mini-cart .feet .total {
+    bottom: 0vh;
+  }
+  .mini-cart .feet .speed {
+    bottom: 0vh;
+  }
+  .mini-cart footer .view-bag {
+    padding: 1px 0 0 0;
+  }
+  .mini-cart main .map aside .cool div span {
+    z-index: 1;
+    background-color: white;
+  }
+  .mini-cart main .map aside .head, .mini-cart main .map aside .pprice {
+    word-wrap: nowrap;
+  }
+  .PDP .side .dividend .page_info .plan {
+    width: 6vw;
+  }
+}/*# sourceMappingURL=App.css.map */
