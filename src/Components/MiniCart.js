@@ -52,19 +52,14 @@ function Price(cross){
     switch(props.symbol){
       case '$':
         return(`${cross.prices[0].currency.symbol} ${cross.prices[0].amount}`)
-        break;
       case '£':
         return(`${cross.prices[1].currency.symbol} ${cross.prices[1].amount}`)
-        break;
       case 'A$':
         return(`${cross.prices[2].currency.symbol} ${cross.prices[2].amount}`)
-        break;
       case '¥':
         return(`${cross.prices[3].currency.symbol} ${cross.prices[3].amount}`)
-        break;
       case '₽':
         return(`${cross.prices[4].currency.symbol} ${cross.prices[4].amount}`)
-        break;
         default:
           break;
   }
@@ -78,11 +73,15 @@ function Price(cross){
       <main>
         { ddata.map((content)=>{
           return(
-            array.map((value)=>{
+            array.map((value,index)=>{
           if(content.id === value.id){
             Pricage(content,value.quantity)
             return(
-              <div className="map">
+              <div key={index} className="map">
+                <span   onClick={()=>{
+                  props.marker.splice(index,1)
+                  props.setMarker([...props.marker])
+                }} className="spa"><i className="fa fa-times" aria-hidden="true"></i></span>
                 <aside>
                   <p className="head">{content.brand} </p>
                   <p className="head">{content.name}</p>
@@ -103,60 +102,62 @@ function Price(cross){
                     </div>
                     <img className="large-one" src={content.gallery[0]} alt="lil" />
                   </article>
-                  {content.attributes.map((attrb)=>{
+                  {content.attributes.map((attrb,numz)=>{
                     if(attrb.id ==='Color'){
                       return(
-                        <>
+                        < div key={numz}>
                           <p className="cati">{attrb.id}</p>
-                          <section>{attrb.items.map((color)=>{
+                          <section>{attrb.items.map((color,namz)=>{
                             let leaf = null
                             value.attributes.map((cath)=>{
                               if(color.value === cath){
                                 leaf =color.value
                               }
+                              return(<></>)
                           })
                             
                                 
                               if(color.value === leaf){
                                 return(
-                                  <span className="spanx" style= {{backgroundColor:color.value ,border:'2px solid rgba(94, 206, 123, 1)'}}></span>
+                                  <span key={namz} className="spanx" style= {{backgroundColor:color.value ,border:'2px solid rgba(94, 206, 123, 1)'}}></span>
                                 )
                             }
                             else{
-                             return(<span className="spanx" style={{backgroundColor:color.value}}></span>)
+                             return(<span key={namz}  className="spanx" style={{backgroundColor:color.value}}></span>)
                             }
                             
                             
                           })}</section>
-                        </>
+                        </div>
                       )
                     }
                     else{
                       return(
-                        <>
+                        <div key={numz}>
                         <p className="cati">{attrb.id}</p>
-                        <section>{attrb.items.map((contentx)=>{
+                        <section>{attrb.items.map((contentx,index)=>{
                           let leaf = null;
                           value.attributes.map((inside)=>{
                               if(contentx.value ===inside){
                                 leaf =inside
                               }
+                              return(<></>)
                             })
                           
                             if(contentx.value ===leaf){
                               return(
-                                <span className="spanner" style={{color:'white',backgroundColor:'rgb(56, 46, 46)',display:'inline-block'}} >{contentx.value}</span>
+                                <span key={index} className="spanner" style={{color:'white',backgroundColor:'rgb(56, 46, 46)',display:'inline-block'}} >{contentx.value}</span>
                               )
                             }
                             else {
                               return(
-                                <span style={{display:'inline-block'}} className="spanner">{contentx.value}</span>
+                                <span key={index} style={{display:'inline-block'}} className="spanner">{contentx.value}</span>
                               )
                             }
                           
 
                         })}</section>
-                        </>
+                        </div>
                       )
                     }
                   })}

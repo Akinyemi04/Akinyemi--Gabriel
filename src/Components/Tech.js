@@ -36,6 +36,7 @@ const Tech = (props) => {
   const[value,setVal]=useState(null)
   const[data,...others]=useFetch(query)
   props.caty('block')
+  console.log(others)
   useEffect(()=>{
     if(data){
       setVal(data.categories[2].products)
@@ -70,7 +71,8 @@ const Tech = (props) => {
             let object ={id:content.id,attributes:arrayx,quantity:1}
             content.attributes.map((contentx,id)=>{
             arrayx.push(contentx.items[0].value)
-               })
+              return(<></>) 
+          })
           let decision = true
 
           if(content.attributes.length !== 0){
@@ -80,6 +82,7 @@ const Tech = (props) => {
                 value.quantity = value.quantity + 1
                 props.setMock([...props.mock])
               }
+              return(<></>)
             })
               if(decision){
                 props.mock.push(object)
@@ -92,12 +95,13 @@ const Tech = (props) => {
               props.setMock([...props.mock])
             }
             else{
-              props.mock.map((value,index)=>{
+              props.mock.map((value)=>{
                 if(value.id === object.id){
                   decision = false
                 value.quantity = value.quantity + 1
                 props.setMock([...props.mock])
                 }
+                return(<></>)
               })
               if(decision){
                 props.mock.push(object)

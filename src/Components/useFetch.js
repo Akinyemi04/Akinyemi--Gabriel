@@ -5,7 +5,9 @@ const useFetch = (content)=>{
     const[error,setError]=useState(null)
     const[ispending,setIsPendding]=useState(true)
     useEffect(()=>{
+        const abortc= new AbortController()
         fetch('http://localhost:4000',{
+        signal :abortc.signal,
         method:'POST',
         headers:{'Content-Type': 'application/json'},
         body:JSON.stringify({
@@ -23,9 +25,16 @@ const useFetch = (content)=>{
             setError(null)
         })
         .catch(err=>{
-            setIsPendding(false)
-            setError(err.message)
+            if(err.name === 'AbortError'){
+                console.log('fetch aborted')
+            }
+            else{
+                setIsPendding(false)
+                  setError(err.message)
+            }
+            
         })
+        return()=> abortc.abort()
     },[content])
     return[val,ispending,error]
 }

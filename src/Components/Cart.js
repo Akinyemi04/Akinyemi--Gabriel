@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom"
 import useFetch from "./useFetch"
 import plus from './images/add.png'
 import minnus from './images/subtract.png'
-import left from './images/left.png'
-import right from './images/right.png'
+import GalleryViewer from "./GalleryViewer"
+
 const query =`query{categories{
   products{
     id
@@ -38,7 +38,6 @@ const Cart = (props) => {
   const[data,...others]=useFetch(query)
   const[ddata,setData]=useState(null)
   const[Tprice,setPrice]=useState(null)
-  const[roll,setRoll]=useState(0)
   
  let array =props.marker
  let numberman = 0
@@ -46,7 +45,7 @@ const Cart = (props) => {
  useEffect(()=>{
   if(data){
     setData(data.categories[0].products)
-    
+    console.log(others)
   }
   setPrice(numberman.toFixed(2))
  },[props.marker,data,ddata,numberman,props.symbol])
@@ -56,62 +55,25 @@ const Cart = (props) => {
     switch(props.symbol){
       case '$':
         return(`${cross.prices[0].currency.symbol} ${cross.prices[0].amount}`)
-        break;
+    
       case '£':
         return(`${cross.prices[1].currency.symbol} ${cross.prices[1].amount}`)
-        break;
+    
       case 'A$':
         return(`${cross.prices[2].currency.symbol} ${cross.prices[2].amount}`)
-        break;
+    
       case '¥':
         return(`${cross.prices[3].currency.symbol} ${cross.prices[3].amount}`)
-        break;
+    
       case '₽':
         return(`${cross.prices[4].currency.symbol} ${cross.prices[4].amount}`)
-        break;
+    
         default:
           break;
   }}
 }
  
-function Display(array){
-  if(array.length === 1){
-    return(
-      <img  style={{opacity:props.black}} className="large-one" src={array[0]} alt="lil" />
-    )
-  }
-  else{ 
-    //let roll = 0
-    console.log(roll)
-    //console.log(array.length)
-    return(
-    <>
-      <div  className="control">
-        
-        <img onClick={()=>{
-          if(roll > 0 ){
-            //roll = roll - 1
-            setRoll(roll -1)
-            //setRide(true)
-            //console.log(roll)
-          }
-        }} className="move" alt='up' src={left}/>
-        <img onClick={()=>{
-          if (roll > -1  && roll < array.length-1){
-            //roll = roll + 1
-            //setRide(false)
-            setRoll(roll +1)
-            //console.log(roll)
-          } 
-        }
-        } className="move right" alt='down ' src={right}/>
 
-        </div>
-      <img  style={{opacity:props.black}} className="large-one" src={array[roll]} alt="lil" />
-    </>
-    )
-  }
-}
 
 function replay(){
   if(ddata){
@@ -123,12 +85,12 @@ function replay(){
           if(content.id === value.id){
             Pricage(content,value.quantity)
             return(
-              <div className="map">
+              <div key={index} className="map">
                 <hr></hr>
                 <span   onClick={()=>{
                   props.marker.splice(index,1)
                   props.setMarker([...props.marker])
-                }} className="spa"><i class="fa fa-times" aria-hidden="true"></i></span>
+                }} className="spa"><i className="fa fa-times" aria-hidden="true"></i></span>
                 <section className="roller">
                 <aside>
                   <p className="head">{content.brand} </p>
@@ -145,6 +107,7 @@ function replay(){
                               if(color.value === cath){
                                 leaf =color.value
                               }
+                              return(<></>)
                           })
                             
                                 
@@ -171,6 +134,7 @@ function replay(){
                           value.attributes.map((inside)=>{
                               if(contentx.value ===inside){
                                 leaf =inside
+                                return(<></>)
                               }
                             })
                           
@@ -206,8 +170,7 @@ function replay(){
                         props.setMarker([...props.marker])}
                       }} className="mirror" src={minnus} alt="subtract" />
                     </div>
-                      {Display(content.gallery)}
-                    
+                    <GalleryViewer black = {props.black} array = {content.gallery}/>
                   </article>
                   </section>
               </div>

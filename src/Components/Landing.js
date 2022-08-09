@@ -40,8 +40,9 @@ const Landing = (props) => {
     if(data){
       setVal(data.categories[0].products)
     }
-    
-  })
+  },[data])
+
+  console.log(others)
   function setCurrency(money){ //using this function to set prices of the products
     if(props.sign==='$'){
       return (money[0].currency.symbol + money[0].amount)

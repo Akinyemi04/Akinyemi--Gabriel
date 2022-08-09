@@ -367,6 +367,15 @@ d* {
 .mini-cart main .map {
   position: relative;
 }
+.mini-cart main .map .spa {
+  display: none;
+  cursor: pointer;
+  position: absolute;
+  top: -3vh;
+  left: 20vw;
+  transform: translatex(-3vw);
+  z-index: 1;
+}
 .mini-cart main .map aside {
   margin-top: 2vh;
   margin-left: 1vw;
@@ -443,6 +452,9 @@ d* {
   height: 3vh;
   border: 1px solid white;
   margin-right: 0.22vw;
+}
+.mini-cart main .map:hover .spa {
+  display: inline-block;
 }
 .mini-cart main::-webkit-scrollbar {
   width: 0.4vw;

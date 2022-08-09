@@ -367,6 +367,16 @@ d*{
         overflow-y: scroll;
         .map{
             position: relative;
+            .spa{
+                display: none;
+                cursor: pointer;
+                position: absolute;
+                top: -3vh;
+                left: 20vw;
+                //float: right;
+                transform: translatex(-3vw);
+                z-index: 1;
+            }
             aside{
                 margin-top: 2vh;
                 margin-left: 1vw;
@@ -442,6 +452,9 @@ d*{
                     }
                 }
             }
+        }
+        .map:hover .spa{
+            display: inline-block;
         }
     }
     main::-webkit-scrollbar{
@@ -780,14 +793,12 @@ d*{
     .App{
         overflow-x: hidden;
         header{
-            //overflow-x: hidden;
             nav{
                 .img{
                     margin-right:20vw ;
                 }
                 aside{
                     .pan{
-                       // align-items: flex-start;
                         .DropD{
                             margin-left: 0.8vw;
                         }

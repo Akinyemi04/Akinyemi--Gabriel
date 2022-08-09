@@ -38,8 +38,10 @@ const Clothe = (props) => {
     if(data){
         setValue(data.categories[1].products)
     }
-    },[value,data])
+    },[data])
 
+
+    console.log(others)
   function setCurrency(money){ //using this function to set prices of the products
     if(props.sign==='$'){
       return (money[0].currency.symbol + money[0].amount)
@@ -67,9 +69,10 @@ const Clothe = (props) => {
             <img className='click' alt='cart-me' src={click} onClick={()=>{
             let arrayx=[]
             let object ={id:content.id,attributes:arrayx,quantity:1}
-            content.attributes.map((contentx,id)=>{
+            content.attributes.map((contentx)=>{
             arrayx.push(contentx.items[0].value)
-               })
+            return(<></>)   
+          })
           let decision = true
 
           if(content.attributes.length !== 0){
@@ -79,7 +82,9 @@ const Clothe = (props) => {
                 value.quantity = value.quantity + 1
                 props.setMock([...props.mock])
               }
-            })
+              return(<></>)
+            }
+            )
               if(decision){
                 props.mock.push(object)
                    props.setMock([...props.mock])
@@ -97,6 +102,7 @@ const Clothe = (props) => {
                 value.quantity = value.quantity + 1
                 props.setMock([...props.mock])
                 }
+                return(<></>)
               })
               if(decision){
                 props.mock.push(object)

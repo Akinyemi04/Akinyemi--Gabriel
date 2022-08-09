@@ -42,8 +42,11 @@ const ProductDevelop = (props) => {
   const object = {id:identity,attributes:attrb,quantity:1}
   
   const{id}=useParams()
+  const colorme = useRef()
+  const textme = useRef()
   const refer = useRef()
   props.caty('none')
+  
   useEffect(()=>{
     if(value){
       setArrex(value.categories[0].products)
@@ -59,23 +62,32 @@ const ProductDevelop = (props) => {
         }
         else{
         }
+        return(<></>)
       })
     }
   },[array,number,value, id])
 
   function Actions(){
     let decision = true
-
     if(props.mock.length !== 0){
-      console.log(props.mock[0].attributes)
       props.mock.find((value)=>{
         if((value.id === identity) &&(JSON.stringify(value.attributes) === JSON.stringify(object.attributes))){
           console.log(JSON.stringify(value.attributes))
           console.log(JSON.stringify(object.attributes))
           decision = false
           value.quantity = value.quantity + 1
+          const color = document.getElementsByClassName('color')
+           for (let i = 0; i < color.length; i++) {
+            color[i].style.border = '1px solid black'
+          }
+          const text = document.getElementsByClassName('text')
+          for (let i = 0; i < text.length; i++) {
+            text[i].style.color = "black";
+            text[i].style.backgroundColor='white'
+          }
           props.setMock([...props.mock])
         }
+        return(<></>)
       })
       if(decision){
         if(number.attributes.length !== 0 && object.attributes.length === 0){
@@ -85,6 +97,17 @@ const ProductDevelop = (props) => {
         }
         else if(number.attributes.length !== 0 && object.attributes.length !== 0){
           props.setMock([...props.mock,object])
+          setAt([])
+           const color = document.getElementsByClassName('color')
+           for (let i = 0; i < color.length; i++) {
+            color[i].style.border = '1px solid black'
+          }
+          const text = document.getElementsByClassName('text')
+          for (let i = 0; i < text.length; i++) {
+            text[i].style.color = "black";
+            text[i].style.backgroundColor='white'
+          }
+          
         }
         else if(number.attributes.length === 0 && object.attributes.length === 0){
           props.setMock([...props.mock,object])
@@ -102,6 +125,16 @@ const ProductDevelop = (props) => {
 
         props.mock.push(object)
         props.setMock([...props.mock])
+        setAt([])
+        const color = document.getElementsByClassName('color')
+           for (let i = 0; i < color.length; i++) {
+            color[i].style.border = '1px solid black'
+          }
+          const text = document.getElementsByClassName('text')
+          for (let i = 0; i < text.length; i++) {
+            text[i].style.color = "black";
+            text[i].style.backgroundColor='white'
+          }
       }
       else if(number.attributes.length === 0 && object.attributes.length === 0){
         props.setMock([...props.mock,object])
@@ -115,19 +148,14 @@ const ProductDevelop = (props) => {
       switch(props.symbol){
         case '$':
           return(`${number.prices[0].currency.symbol} ${number.prices[0].amount}`)
-          break;
         case '£':
           return(`${number.prices[1].currency.symbol} ${number.prices[1].amount}`)
-          break;
         case 'A$':
           return(`${number.prices[2].currency.symbol} ${number.prices[2].amount}`)
-          break;
         case '¥':
           return(`${number.prices[3].currency.symbol} ${number.prices[3].amount}`)
-          break;
         case '₽':
           return(`${number.prices[4].currency.symbol} ${number.prices[4].amount}`)
-          break;
           default:
             break;
     }}
@@ -154,18 +182,18 @@ const ProductDevelop = (props) => {
             number.attributes.map((content,index)=>{
               if(content.name ==='Color'){
                 return(
-                  <>
+                  < div key ={index}>
                   <p className="tody">{content.name}</p>
-                  <div key={index} className="page_info">
+                  <div className="page_info">
                       {content.items.map((value,numb)=>{
                         return(
-                          <span coloring={value.value}  onClick={(e)=>{
+                          <span key={numb} ref={colorme} coloring={value.value}  onClick={(e)=>{
                             let truthfinder = true
                           if(e.target.style.border ===''){
                             e.target.style.border = '2px solid rgba(94, 206, 123, 1)'
                             
                              setAt([...attrb,value.value])
-                             truthfinder=false
+                             truthfinder = false
                             let elem= e.target
                              let prev = e.target 
                              if(elem !== 'null'){
@@ -184,6 +212,7 @@ const ProductDevelop = (props) => {
                               attrb.splice(index,1 )
                               setAt([...attrb])
                               truthfinder=false
+                              return(<></>)
                             })
                            }
                            else {
@@ -222,20 +251,21 @@ const ProductDevelop = (props) => {
                             }}
                            }
                            truthfinder && setAt([...attrb,value.value])
-                          }} className="span" style={{backgroundColor:value.value}} key={numb}></span>
+                          }} className="span color" style={{backgroundColor:value.value}}></span>
                         )
                       })}
-                  </div></>)
+                  </div>
+                  </div>)
                   }
               else{
                 return(
-                  <>
+                  <div key ={index}>
                   <p className="tody">{content.name}</p>
-                  <div key={index} className="page_info">
+                  <div  className="page_info">
                       {content.items.map((value,numb)=>{
                         return(
 
-                          <span valuation={value.value} onClick={(e)=>{
+                          <span ref={textme}  valuation={value.value} onClick={(e)=>{
                            let truthfinder= true
                             if (e.target.style.color === ''){
                                setAt([...attrb,value.value])
@@ -277,6 +307,7 @@ const ProductDevelop = (props) => {
                                     else{
                                       
                                     }
+                                    return(<></>)
                                   })
 
                               }}
@@ -310,10 +341,11 @@ const ProductDevelop = (props) => {
                               
                             }
                             truthfinder && setAt([...attrb,value.value])
-                          }} className="plan" key={numb}>{value.value}</span>
+                          }} className="plan text" key={numb}>{value.value}</span>
                         )
                       })}
-                  </div></>)
+                  </div>
+                  </div>)
               }
               
             })
@@ -326,7 +358,7 @@ const ProductDevelop = (props) => {
           Actions(number.id)
         }}>Add To Cart</button>
        {
-        <p className="description">{number.description}</p>}
+        <p className="description" dangerouslySetInnerHTML={{__html:number.description}}></p>}
       </aside>
     )
   }
