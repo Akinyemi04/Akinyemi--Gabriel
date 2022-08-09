@@ -46,7 +46,7 @@ const ProductDevelop = (props) => {
   const textme = useRef()
   const refer = useRef()
   props.caty('none')
-  
+  console.log(others)
   useEffect(()=>{
     if(value){
       setArrex(value.categories[0].products)
@@ -66,7 +66,7 @@ const ProductDevelop = (props) => {
       })
     }
   },[array,number,value, id])
-
+  console.log(attrb)
   function Actions(){
     let decision = true
     if(props.mock.length !== 0){
@@ -74,6 +74,7 @@ const ProductDevelop = (props) => {
         if((value.id === identity) &&(JSON.stringify(value.attributes) === JSON.stringify(object.attributes))){
           console.log(JSON.stringify(value.attributes))
           console.log(JSON.stringify(object.attributes))
+          setAt([])
           decision = false
           value.quantity = value.quantity + 1
           const color = document.getElementsByClassName('color')
@@ -189,6 +190,7 @@ const ProductDevelop = (props) => {
                         return(
                           <span key={numb} ref={colorme} coloring={value.value}  onClick={(e)=>{
                             let truthfinder = true
+                            console.log(e.target.style.border)
                           if(e.target.style.border ===''){
                             e.target.style.border = '2px solid rgba(94, 206, 123, 1)'
                             
@@ -215,16 +217,15 @@ const ProductDevelop = (props) => {
                               return(<></>)
                             })
                            }
-                           else {
+                           else  {
                             e.target.style.border = '2px solid rgba(94, 206, 123, 1)'
                             const allow = value.value
-                            
                             let elem= e.target
                              let prev = e.target 
                              if(elem !== 'null'){
                                 while(elem = elem.nextSibling){
                                   attrb.map((content,index)=>{
-                                    let custom =elem.getAttribute('coloring')
+                                    let custom = elem.getAttribute('coloring')
                                     if(content === custom){
                                       attrb.splice(index,1,allow)
                                       setAt([...attrb])

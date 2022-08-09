@@ -134,8 +134,8 @@ function replay(){
                           value.attributes.map((inside)=>{
                               if(contentx.value ===inside){
                                 leaf =inside
-                                return(<span></span>)
                               }
+                              return(<span></span>)
                             })
                           
                             if(contentx.value ===leaf){
@@ -176,6 +176,9 @@ function replay(){
               </div>
               
               )
+          }
+          else{
+            return(<span></span>)
           }
         })
           )
