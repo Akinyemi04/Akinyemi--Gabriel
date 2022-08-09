@@ -39,6 +39,8 @@ const MiniCart = (props) => {
   const[Tprice,setPrice]=useState(null)
  let array =props.marker
  let numberman = 0
+
+ console.log(others)
  useEffect(()=>{
   if(data){
     setData(data.categories[0].products)
@@ -79,7 +81,7 @@ function Price(cross){
             return(
               <div key={index} className="map">
                 <span   onClick={()=>{
-                  props.marker.splice(index,1)
+                  props.marker.splice(index,1) 
                   props.setMarker([...props.marker])
                 }} className="spa"><i className="fa fa-times" aria-hidden="true"></i></span>
                 <aside>
@@ -165,6 +167,9 @@ function Price(cross){
               </div>
               
               )
+          }
+          else{
+            return(<span></span>)
           }
         })
           )

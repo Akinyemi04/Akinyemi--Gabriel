@@ -232,6 +232,7 @@ const ProductDevelop = (props) => {
                                     }
                                     else{
                                     }
+                                    return(<span></span>)
                                   })
                                   elem.style.border='1px solid black'
                               }}
@@ -246,6 +247,7 @@ const ProductDevelop = (props) => {
                                     }
                                     else{
                                     }
+                                    return(<span></span>)
                                   })
                                   prev.style.border='1px solid black'
                             }}
@@ -307,7 +309,7 @@ const ProductDevelop = (props) => {
                                     else{
                                       
                                     }
-                                    return(<></>)
+                                    return(<span></span>)
                                   })
 
                               }}
@@ -324,6 +326,7 @@ const ProductDevelop = (props) => {
                                     }
                                     else{
                                     }
+                                    return(<span></span>)
                                   })
                             }}
                             }
@@ -335,8 +338,8 @@ const ProductDevelop = (props) => {
                                   attrb.splice(index,1)
                                   setAt([...attrb])
                                   truthfinder=false
-                                  
                                 }
+                                return(<span></span>)
                               })
                               
                             }

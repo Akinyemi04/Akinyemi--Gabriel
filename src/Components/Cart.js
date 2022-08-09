@@ -42,10 +42,10 @@ const Cart = (props) => {
  let array =props.marker
  let numberman = 0
  props.caty('none')
+ console.log(others)
  useEffect(()=>{
   if(data){
     setData(data.categories[0].products)
-    console.log(others)
   }
   setPrice(numberman.toFixed(2))
  },[props.marker,data,ddata,numberman,props.symbol])
@@ -82,12 +82,12 @@ function replay(){
         { ddata.map((content)=>{
           return(
             array.map((value,index )=>{
-          if(content.id === value.id){
-            Pricage(content,value.quantity)
-            return(
-              <div key={index} className="map">
-                <hr></hr>
-                <span   onClick={()=>{
+            if(content.id === value.id){
+              Pricage(content,value.quantity)
+             return(
+               <div key={index} className="map">
+                  <hr></hr>
+                  <span   onClick={()=>{
                   props.marker.splice(index,1)
                   props.setMarker([...props.marker])
                 }} className="spa"><i className="fa fa-times" aria-hidden="true"></i></span>
@@ -134,7 +134,7 @@ function replay(){
                           value.attributes.map((inside)=>{
                               if(contentx.value ===inside){
                                 leaf =inside
-                                return(<></>)
+                                return(<span></span>)
                               }
                             })
                           

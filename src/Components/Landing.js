@@ -72,16 +72,18 @@ const Landing = (props) => {
           let object ={id:content.id,attributes:arrayx,quantity:1}
           content.attributes.map((contentx,id)=>{
             arrayx.push(contentx.items[0].value)
-               })
+          return(<span> </span>)     
+          })
           let decision = true
 
           if(content.attributes.length !== 0){
-            props.mock.map((value,index)=>{
+            props.mock.map((value)=>{
               if((value.id === object.id) &&(JSON.stringify(value.attributes) === JSON.stringify(object.attributes))){
                 decision = false
                 value.quantity = value.quantity + 1
                 props.setMock([...props.mock])
               }
+              return(<span></span>)
             })
               if(decision){
                 props.mock.push(object)
@@ -94,12 +96,13 @@ const Landing = (props) => {
               props.setMock([...props.mock])
             }
             else{
-              props.mock.map((value,index)=>{
+              props.mock.map((value)=>{
                 if(value.id === object.id){
                   decision = false
                 value.quantity = value.quantity + 1
                 props.setMock([...props.mock])
                 }
+                return(<span></span>)
               })
               if(decision){
                 props.mock.push(object)
